@@ -3,7 +3,7 @@ RISCV_DISAS_OBJ = build/obj/riscv-disas.o
 RISCV_DISAS_LIB = build/lib/riscv-disas.a
 
 CFLAGS = -O2
-PROGRAMS = build/bin/test-disas build/bin/test-encode
+PROGRAMS = build/bin/test-disas build/bin/test-encode build/bin/v8-dis
 TESTS = build/tests/minimal-test.txt
 
 all: $(PROGRAMS) $(TESTS)
@@ -14,6 +14,7 @@ clean:
 test: all
 	cat build/tests/minimal-test.txt
 	./build/bin/test-disas
+	zcat log-code.txt.gz | ./build/bin/v8-dis > log-with-disasm.txt
 
 build/obj/%.o: src/%.c
 	@echo CC $@ ; mkdir -p $(@D) ; $(CC) $(CFLAGS) -c $^ -o $@

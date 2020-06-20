@@ -1,1 +1,3 @@
 build/
+/log-code.txt.gz
+log-with-disasm.txt
