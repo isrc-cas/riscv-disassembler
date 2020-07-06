@@ -20,6 +20,8 @@ static uint64_t inst_arr[] = {
     0x597,
     0x204002b7,
     0x13,
+    0x00002fb7,
+    0x02000fb7,
 };
 
 int main()
